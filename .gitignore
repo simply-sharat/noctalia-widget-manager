@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Never commit personal config data
+settings.json
+*.json.bak
+
+# Editor/OS
+.DS_Store
+.idea/
+.vscode/
