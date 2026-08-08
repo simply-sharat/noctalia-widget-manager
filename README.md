@@ -23,11 +23,38 @@ config file.
 - Python 3.10+
 - PySide6 (`pip install PySide6`, or `sudo pacman -S python-pyside6` on Arch)
 
+Only needed to run `main.py` directly. The packaged binary (see below) is
+self-contained and needs neither Python nor PySide6.
+
+## Install as a standalone app
+
+Build a single self-contained binary and add it to your system launcher:
+
+```bash
+./build.sh     # creates .venv, installs PyInstaller, builds dist/noctalia-widget-manager
+./install.sh   # installs the binary + .desktop entry + icon under ~/.local
+```
+
+`install.sh` copies the binary to `~/.local/bin/` and registers a
+**Noctalia Widget Manager** entry in `~/.local/share/applications/`, so the app
+appears in your application launcher and can be pinned. No root required. To
+uninstall, remove the three installed files listed below:
+
+```
+~/.local/bin/noctalia-widget-manager
+~/.local/share/applications/noctalia-widget-manager.desktop
+~/.local/share/icons/hicolor/256x256/apps/noctalia-widget-manager.png
+```
+
 ## Usage
+
+Run from source:
 
 ```bash
 python3 main.py
 ```
+
+Or launch the installed app from your launcher (or `noctalia-widget-manager`).
 
 Edit the config path at the top of `main.py` if your Noctalia config lives
 somewhere other than `~/.config/noctalia/settings.json`.
@@ -49,6 +76,13 @@ The original file is copied to `settings.json.bak` before every save.
 ## Project layout
 
 ```
-main.py       The application (single file)
-.gitignore    Excludes Python caches and personal config files
+main.py                         The application (single file)
+build.sh                        Builds the standalone binary with PyInstaller
+install.sh                      Installs the binary + launcher entry
+noctalia-widget-manager.spec    PyInstaller spec (one-file, windowed)
+tools/make_icon.py              Renders the launcher icon (PNG)
+data/                           Generated icon + .desktop launcher template
+.venv/                          Build venv (created by build.sh, gitignored)
+dist/                           Built binary (created by build.sh, gitignored)
+.gitignore                      Excludes Python caches and personal config files
 ```

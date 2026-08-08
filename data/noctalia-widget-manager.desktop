@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Noctalia Widget Manager
+GenericName=Widget Manager
+Comment=View and reorder Noctalia bar widgets
+Exec=@INSTALL_DIR@/noctalia-widget-manager
+Icon=noctalia-widget-manager
+Terminal=false
+Categories=Utility;
+Keywords=noctalia;widget;bar;quickshell;settings;

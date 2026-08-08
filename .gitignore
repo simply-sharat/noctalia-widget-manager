@@ -3,6 +3,11 @@ __pycache__/
 *.pyc
 .venv/
 
+# Build output
+dist/
+build/
+*.spec.bak
+
 # Never commit personal config data
 settings.json
 *.json.bak
