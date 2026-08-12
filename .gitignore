@@ -10,7 +10,9 @@ build/
 
 # Never commit personal config data
 settings.json
+settings.toml
 *.json.bak
+*.toml.bak
 
 # Editor/OS
 .DS_Store

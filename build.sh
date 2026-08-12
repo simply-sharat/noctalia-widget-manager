@@ -14,8 +14,8 @@ if [ ! -x "$VENV_DIR/bin/python" ]; then
 fi
 
 if ! "$VENV_DIR/bin/pip" show pyinstaller >/dev/null 2>&1; then
-    echo "Installing PyInstaller into $VENV_DIR ..."
-    "$VENV_DIR/bin/pip" install --upgrade pyinstaller
+    echo "Installing PyInstaller and tomlkit into $VENV_DIR ..."
+    "$VENV_DIR/bin/pip" install --upgrade pyinstaller tomlkit
 fi
 
 echo "Generating icon ..."
